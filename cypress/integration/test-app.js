@@ -80,27 +80,6 @@ describe("Keep track of previous searches", () => {
       .not("contain.text", "No previous searches");
   });
 
-  it("if the sidebar link is clicked, the main section should be populated with that weather information", () => {
-    cy.intercept("GET", "https://wttr.in/Melbourne*", {
-      fixture: "melbourne.json",
-    }).as("fetchMelbourne");
-
-    cy.get("aside section a").first().click();
-
-    cy.get("main")
-      .should("contain.text", "Melbourne")
-      .should("contain.text", "Victoria")
-      .should("contain.text", "Australia")
-      .should("contain.text", "47");
-    cy.get("main")
-      .should("contain.text", "49")
-      .should("contain.text", "51")
-      .should("contain.text", "52")
-      .should("contain.text", "53")
-      .should("contain.text", "54")
-      .should("contain.text", "55")
-      .should("contain.text", "57");
-  });
   it("should update both the main section of the page and the sidebar if another search is made", () => {
     cy.intercept("GET", "https://wttr.in/Seattle*", {
       fixture: "seattle.json",
@@ -129,6 +108,27 @@ describe("Keep track of previous searches", () => {
       .children()
       .should("contain.text", "Melbourne")
       .should("contain.text", "Seattle");
+  });
+  it("if the sidebar link is clicked, the main section should be populated with that weather information", () => {
+    cy.intercept("GET", "https://wttr.in/Melbourne*", {
+      fixture: "melbourne.json",
+    }).as("fetchMelbourne");
+
+    cy.get("aside section a").first().click();
+
+    cy.get("main")
+      .should("contain.text", "Melbourne")
+      .should("contain.text", "Victoria")
+      .should("contain.text", "Australia")
+      .should("contain.text", "47");
+    cy.get("main")
+      .should("contain.text", "49")
+      .should("contain.text", "51")
+      .should("contain.text", "52")
+      .should("contain.text", "53")
+      .should("contain.text", "54")
+      .should("contain.text", "55")
+      .should("contain.text", "57");
   });
   it("after clicking the sidebar link, another entry for the same location should not be made", () => {
     cy.get("ul li a").contains("Melbourne").click();
