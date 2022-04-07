@@ -132,7 +132,7 @@ describe("Keep track of previous searches", () => {
   });
   it("after clicking the sidebar link, another entry for the same location should not be made", () => {
     cy.get("ul li a").contains("Melbourne").click();
-    cy.get("aside section")
+    cy.get("aside ul")
       .children()
       .should("contain.text", "Melbourne")
       .should("contain.text", "Seattle")
