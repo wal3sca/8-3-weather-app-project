@@ -1,0 +1,29 @@
+body{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  text-align: center;
+  background-color: brown;
+}
+
+div{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+h1{
+  color: khaki;
+}
+
+header{
+  border-style: solid;
+  border-radius: 1fr;
+  background-color: darkcyan;
+  border-color: darkcyan;
+}
+
+/* doesnt work */
+/* #history p{
+  border-style: solid;
+  border-radius: 1fr;
+  border-color: darkcyan;
+} */

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Application</title>
+    <!-- icon image library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- icon image tab -->
+    <link
+    rel="shortcut icon"
+    href="./assets/weathercon.png"
+    type="image/x-icon"
+    />
+    <link href ="./style.css" rel="stylesheet" />
+    <link />
+    <script defer src="./main.js"></script>
+ 
+</head>
+
+<body>
+    <header>
+        <h1>Weather App</h1>
+            <form>
+                <label>    
+                    <input type="text" name="location" placeholder="State, City, Zip, Place"/>
+                </label>
+                <input class="button" type="submit" value="Search">
+            </form>
+    </header>
+    <div>
+        <aside>
+            <!-- code from w3schools -->
+            <!-- When the input field receives input, convert the value from fahrenheit to celsius -->
+
+            <p><b>Type a value in the Fahrenheit field to convert the value to Celsius:</b></p>
+            <p>
+            <label>Fahrenheit:</label>
+            <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+            </p>
+            <p>Celcius: <span id="outputCelcius"></span></p>
+
+            <script>
+            function temperatureConverter(valNum) {
+            valNum = parseFloat(valNum);
+            document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+            }
+            </script>
+        </aside>
+                
+        <main class="display">
+            <article id ="textBox">
+                <p><b>Select a location to view the weather</b></p>
+            </article>
+            <aside>
+                <article id = "today"></article>
+                <article id ="tomorrow"></article>
+                <article id ="dayAfter"></article>
+            </aside>
+        </main>
+        
+        <aside class="history">
+            <h4>Previous Searches</h4>
+            <section>
+            </section>       
+            <ul>
+                <p>No searches have been made</p>
+            </ul>
+        </aside>
+        
+    </div>
+
+</body>
+</html>
+      
